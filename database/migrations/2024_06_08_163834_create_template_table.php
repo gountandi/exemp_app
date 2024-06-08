@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('template', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('libelle');
+            $table->string('contenu');
+            $table->integer('ticket_id');
+            $table->foreign('ticket_id')->references('id')->on('ticket');
         });
     }
 
