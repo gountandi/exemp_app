@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('ticket', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('libelle');
+            $table->integer('prix');
+            $table->integer('nbre_place');
+            $table->string('type');
+            $table->integer('event_id');
+            $table->foreign('event_id')->reference('id')->on('evenement');
             
         });
     }
