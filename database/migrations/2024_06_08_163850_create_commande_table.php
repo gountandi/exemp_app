@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('commande', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->date('date_commande');
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
