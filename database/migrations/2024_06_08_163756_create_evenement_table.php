@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('description');
             $table->date('date');
             $table->string('heure_debut');
-            $table->string('heur_fin');
+            $table->string('heure_fin');
             $table->integer('entreprise_id');
             $table->foreign('entreprise_id')->references('id')->on('entreprise');
         });
