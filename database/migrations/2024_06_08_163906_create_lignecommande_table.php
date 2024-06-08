@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('quantiter');
+            $table->integer('ticket_id');
+            $table->foreign('ticket_id')->references('id')->on('ticket');
+            $table->integer('cmd_id');
+            $table->foreign('cmd_id')->references('id')->on('commande');
         });
     }
 
