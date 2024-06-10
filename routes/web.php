@@ -47,3 +47,13 @@ Route::get('/etudiant/{id}/{name}', function (int $id,string $name) {
     
 })->where('id','[0-9]+')->where('name','[a-zA-Z]+');
 
+
+Route::get('/users', function () {
+    // return view('hello world');
+
+    return DB::table('users')->distinct()->get();
+    
+});
+
+
+
