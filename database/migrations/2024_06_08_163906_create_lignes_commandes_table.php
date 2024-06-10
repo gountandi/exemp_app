@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ticket', function (Blueprint $table) {
+        Schema::create('lignes_commandes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('libelle');
-            $table->integer('prix');
-            $table->integer('nbre_place');
-            $table->string('type');
-            $table->integer('event_id');
-            $table->foreign('event_id')->reference('id')->on('evenement');
-            
+            $table->integer('quantiter');
+            $table->integer('ticket_id');
+            $table->foreign('ticket_id')->references('id')->on('tickets');
+            $table->integer('cmd_id');
+            $table->foreign('cmd_id')->references('id')->on('commandes');
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ticket');
+        Schema::dropIfExists('lignes_commandes');
     }
 };

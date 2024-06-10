@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('evenement', function (Blueprint $table) {
+        Schema::create('evenements', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name');
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('heure_debut');
             $table->string('heure_fin');
             $table->integer('entreprise_id');
-            $table->foreign('entreprise_id')->references('id')->on('entreprise');
+            $table->foreign('entreprise_id')->references('id')->on('entreprises');
         });
     }
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('evenement');
+        Schema::dropIfExists('evenements');
     }
 };

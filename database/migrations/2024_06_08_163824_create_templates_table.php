@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lignecommande', function (Blueprint $table) {
+        Schema::create('templates', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('quantiter');
-            $table->integer('ticket_id');
-            $table->foreign('ticket_id')->references('id')->on('ticket');
-            $table->integer('cmd_id');
-            $table->foreign('cmd_id')->references('id')->on('commande');
+            $table->string('libelle');
+            $table->string('contenu');
+           
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lignecommande');
+        Schema::dropIfExists('templates');
     }
 };

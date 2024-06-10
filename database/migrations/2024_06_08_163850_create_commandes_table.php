@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('template', function (Blueprint $table) {
+        Schema::create('commandes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('libelle');
-            $table->string('contenu');
-            $table->integer('ticket_id');
-            $table->foreign('ticket_id')->references('id')->on('ticket');
+            $table->date('date_commande');
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('template');
+        Schema::dropIfExists('commandes');
     }
 };
