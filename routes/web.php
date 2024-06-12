@@ -51,9 +51,11 @@ Route::get('/etudiant/{id}/{name}', function (int $id,string $name) {
 
 
 Route::get('/users', function () {
-    // return view('hello world');
+    //  return ('hello');
 
-    return DB::table('users')->distinct()->get();
+    $users= DB::table('users')->distinct()->get()->first();
+
+    return "liste des users : ";
     
 });
 
