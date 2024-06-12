@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class Evenement extends Model
 {
@@ -13,10 +15,20 @@ class Evenement extends Model
         'name',
         'country',
         'town',
-        'neighborhood',
         'adresses',
+        'gps',
+        'description',
+        'date',
+        'heure_debut',
+        'heure_fin',
         'entreprise_id'
     ];
+
+    public function entreprise() : BelongsTo {
+
+        return $this->belongsTo(Entreprise::class);
+        
+    }
 
 
 
