@@ -32,7 +32,7 @@ class Evenement extends Model
         
     }
 
-    public function tickets(): HasMany {
+    public function tickets1(): HasMany {
 
         return $this->hasMany(Ticket::class);
 
